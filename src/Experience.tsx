@@ -1,5 +1,6 @@
 import { Sky } from '@react-three/drei'
 import Level from './Level'
+import Player from './Player'
 
 export default function Experience() {
   return (
@@ -19,15 +20,10 @@ export default function Experience() {
       />
 
       <ambientLight intensity={0.4} />
-      <directionalLight
-        castShadow
-        intensity={1.4}
-        position={[6, 10, 4]}
-        shadow-mapSize-width={2048}
-        shadow-mapSize-height={2048}
-      />
+      <directionalLight castShadow intensity={1.4} position={[6, 10, 4]} shadow-mapSize-width={2048} shadow-mapSize-height={2048} />
 
       <Level />
+      <Player />
     </>
   )
 }

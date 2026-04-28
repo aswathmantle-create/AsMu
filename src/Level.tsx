@@ -1,9 +1,11 @@
+import { usePlane } from '@react-three/cannon'
 import { useLayoutEffect, useMemo, useRef } from 'react'
 import { InstancedMesh, Matrix4, Object3D } from 'three'
 
 const BAMBOO_COUNT = 100
 
 export default function Level() {
+  const [groundRef] = usePlane(() => ({ rotation: [-Math.PI / 2, 0, 0], position: [0, 0, 0] }))
   const bambooRef = useRef<InstancedMesh>(null)
 
   const bambooMatrices = useMemo(() => {
@@ -41,7 +43,7 @@ export default function Level() {
 
   return (
     <group>
-      <mesh rotation-x={-Math.PI / 2} receiveShadow>
+      <mesh ref={groundRef} rotation-x={-Math.PI / 2} receiveShadow>
         <planeGeometry args={[120, 120]} />
         <meshStandardMaterial color="#5d6f3a" roughness={0.98} metalness={0.02} />
       </mesh>

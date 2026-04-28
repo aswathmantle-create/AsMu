@@ -1,13 +1,13 @@
 import { Canvas } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
+import { Physics } from '@react-three/cannon'
 import Experience from './Experience'
 
 export default function App() {
   return (
-    <Canvas camera={{ position: [5, 5, 5], fov: 50 }}>
-      <color attach="background" args={['#111827']} />
-      <OrbitControls makeDefault />
-      <Experience />
+    <Canvas camera={{ position: [0, 2.2, 10], fov: 70 }} shadows>
+      <Physics gravity={[0, -20, 0]} broadphase="SAP" allowSleep>
+        <Experience />
+      </Physics>
     </Canvas>
   )
 }

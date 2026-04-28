@@ -1,6 +1,7 @@
 import { Sky } from '@react-three/drei'
 import Level from './Level'
 import Player from './Player'
+import StoryManager from './StoryManager'
 
 export default function Experience() {
   return (
@@ -24,6 +25,7 @@ export default function Experience() {
 
       <Level />
       <Player />
+      <StoryManager />
     </>
   )
 }
